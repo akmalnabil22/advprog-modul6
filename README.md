@@ -21,3 +21,10 @@ dikirim akan mengirimkan `404.html`. Refactoring dilakukan agar tidak ada duplik
 Pada endpoint `sleep`, kita akan melakukan sleep pada thread kita yang sedang berjalan. Karena kita hanya memakai satu thread,
 saat kita mengakses browser dari windows baru, maka harus menunggu proses dari endpoint `/sleep` selesai terlebih dahulu
 karena kedua proses tersebut berjalan di thread yang sama.
+
+
+## Commit 5 Reflection
+Sekarang kita menyiapkan 4 thread yang bisa digunakan untuk menjalankan proses. Setiap ada request yang masuk, request akan 
+dijalankan pada salah satu thread. Pada `lib.rs`, kita membuat struktur ThreadPool yang mengelola kumpulan worker thread.
+Setiap ada tugas baru yang dikirim, worker thread akan mengambil dan mengeksekusi tugas tersebut. Jadi, kita bisa menjalankan 
+berbagai tugas secara konkuren.
